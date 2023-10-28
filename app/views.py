@@ -72,4 +72,11 @@ def view_delete(request, id):
     queryset.delete()
     return redirect('/app/table/')
 
+
+def view_view(request,eid=None):
+    mydict={}
+    one_rec = Employee.objects.get(pk=eid)
+    mydict['emp']=one_rec
+    return render(request,'''app/view.html''',mydict)
+
     
